@@ -352,6 +352,36 @@ namespace NegoSudAPI.Migrations
                     b.ToTable("magasins");
                 });
 
+            modelBuilder.Entity("NegoSudAPI.Models.Mailer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Corps")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("DateInscription")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("EnvoyePar")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Sujet")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("receptionneur")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("mailers");
+                });
+
             modelBuilder.Entity("NegoSudAPI.Models.Pays", b =>
                 {
                     b.Property<int>("Id")
@@ -589,20 +619,6 @@ namespace NegoSudAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("utilisateurs");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Email = "mouyahada@gmail.com",
-                            IsBusiness = false,
-                            MotDePasse = "Password",
-                            Nom = "Mouyahada",
-                            NomUtilisateur = "Ismail",
-                            Prenom = "Ismail",
-                            Role = 1,
-                            SIREN = "FR5664544654"
-                        });
                 });
 
             modelBuilder.Entity("NegoSudAPI.Models.Ville", b =>
